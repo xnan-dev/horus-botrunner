@@ -24,6 +24,7 @@ SCRIPTS UTILES:
 
 -- UPDATE portfolio SET lastDepositTIme=1664628383
 
--- LIMPIEZA DE bots: ordenes, portofolio, comienzo de operaciones trader
+-- LIMPIEZA DE bots: ordenes, portofolio, comienzo de operaciones trader OJO!
 DELETE FROM portfolioasset WHERE assetQuantity<>100000;
 DELETE FROM assetTradeOrder;
+UPDATE divideAndScaleMarketTrader SET startBeat=-1;
