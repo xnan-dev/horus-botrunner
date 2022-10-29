@@ -48,12 +48,12 @@ UPDATE divideAndScaleMarketTrader SET phase=1,startBeat=0 WHERE botArenaId='cryp
 DELETE FROM hmatrix WHERE name IN ('mtxMarketStatsCryptosTestShortScalar','mtxMarketStatsCryptosTestShortHistory','mtxMarketStatsCryptosTestMediumScalar','mtxMarketStatsCryptosTestMediumHistory','mtxMarketStatsCryptosTestLongScalar','mtxMarketStatsCryptosTestLongHistory');
 
 -- MERVAL ACCIONES GENERAL
-DELETE FROM portfolioasset WHERE assetQuantity<>100000 AND portfolioid IN ('botAccionesGeneralTest1Portfolio','botAccionesGeneralTest2Portfolio'); 
+DELETE FROM portfolioasset WHERE assetQuantity<>1000000 AND portfolioid IN ('botMervalAccionesGeneralTest1Portfolio','botMervalAccionesGeneralTest2Portfolio'); 
 DELETE FROM assetTradeOrder WHERE botArenaId='cryptosTestArena' AND traderId IN('botTest1','botTest2'); 
 UPDATE divideAndScaleMarketTrader SET startBeat=-1 WHERE botArenaId='mervalAccionesGeneralTestArena' AND traderId IN('botTest1','botTest2');
-UPDATE yahooFinanceTestMarket SET cacheBeat=-1, cachePage=0, cacheIndex=0 WHERE marketId='mervalAccionesGeneralTestArenaMarket'
-UPDATE yahooFinanceMarket SET lastBeatRead=0 WHERE marketId='mervalAccionesGeneralTestArenaMarket'
-UPDATE marketStats SET endBeat=0, synchedBeat=-1 WHERE marketId='mervalAccionesGeneralTestArenaMarket'
+UPDATE yahooFinanceTestMarket SET cacheBeat=-1, cachePage=0, cacheIndex=0 WHERE marketId='mervalAccionesGeneralTestArenaMarket';
+UPDATE yahooFinanceMarket SET lastBeatRead=0 WHERE marketId='mervalAccionesGeneralTestArenaMarket';
+UPDATE marketStats SET endBeat=0, synchedBeat=-1 WHERE marketId='mervalAccionesGeneralTestArenaMarket';
 UPDATE divideAndScaleMarketTrader SET phase=1,startBeat=0 WHERE botArenaId='mervalAccionesGeneralTestArena' AND traderId IN('botTest1','botTest2');
 DELETE FROM hmatrix WHERE name LIKE 'mtxMarketStatsMervalAccionesGeneralTest%';
 
@@ -70,3 +70,5 @@ UPDATE divideAndScaleMarketTrader SET startBeat=-1;
 --single run de bot cryptos de prueba
 http://local.rc.horus.xnan.click//MarketBotRunnerWeb/index.php?q=run&beats=1&live=false&botArenaId=cryptosTestArena
 
+--single run de bot Merval Acciones General Prueba
+http://local.rc.horus.xnan.click//MarketBotRunnerWeb/index.php?q=run&beats=1&live=false&botArenaId=mervalAccionesGeneralTestArena
