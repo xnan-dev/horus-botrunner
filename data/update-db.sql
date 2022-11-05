@@ -37,7 +37,7 @@ UPDATE divideAndScaleMarketTrader SET startBeat=-1;
 
 TODO: Falta reset de marketStats
 
--- DE CRYPTOS
+-- LIMPIEZA DE CRYPTOS
 DELETE FROM portfolioasset WHERE assetQuantity<>100000 AND portfolioid IN ('botCryptosTest1Portfolio','botCryptosTest2Portfolio'); 
 DELETE FROM assetTradeOrder WHERE botArenaId='cryptosTestArena' AND traderId IN('botTest1','botTest2'); 
 UPDATE divideAndScaleMarketTrader SET startBeat=-1 WHERE botArenaId='cryptosTestArena' AND traderId IN('botTest1','botTest2');
@@ -47,7 +47,7 @@ UPDATE marketStats SET endBeat=0, synchedBeat=-1 WHERE marketId='cryptosTestAren
 UPDATE divideAndScaleMarketTrader SET phase=1,startBeat=0 WHERE botArenaId='cryptosTestArena' AND traderId IN('botTest1','botTest2');
 DELETE FROM hmatrix WHERE name IN ('mtxMarketStatsCryptosTestShortScalar','mtxMarketStatsCryptosTestShortHistory','mtxMarketStatsCryptosTestMediumScalar','mtxMarketStatsCryptosTestMediumHistory','mtxMarketStatsCryptosTestLongScalar','mtxMarketStatsCryptosTestLongHistory');
 
--- MERVAL ACCIONES GENERAL
+-- LIMPIEZA MERVAL ACCIONES GENERAL
 DELETE FROM portfolioasset WHERE assetQuantity<>1000000 AND portfolioid IN ('botMervalAccionesGeneralTest1Portfolio','botMervalAccionesGeneralTest2Portfolio'); 
 DELETE FROM assetTradeOrder WHERE botArenaId='cryptosTestArena' AND traderId IN('botTest1','botTest2'); 
 UPDATE divideAndScaleMarketTrader SET startBeat=-1 WHERE botArenaId='mervalAccionesGeneralTestArena' AND traderId IN('botTest1','botTest2');
@@ -56,6 +56,16 @@ UPDATE yahooFinanceMarket SET lastBeatRead=0 WHERE marketId='mervalAccionesGener
 UPDATE marketStats SET endBeat=0, synchedBeat=-1 WHERE marketId='mervalAccionesGeneralTestArenaMarket';
 UPDATE divideAndScaleMarketTrader SET phase=1,startBeat=0 WHERE botArenaId='mervalAccionesGeneralTestArena' AND traderId IN('botTest1','botTest2');
 DELETE FROM hmatrix WHERE name LIKE 'mtxMarketStatsMervalAccionesGeneralTest%';
+
+-- LIMPIEZA MERVAL CEDEARs
+DELETE FROM portfolioasset WHERE assetQuantity<>1000000 AND portfolioid IN ('botMervalCedearsTest1Portfolio','botMervalCedearsTest2Portfolio'); 
+DELETE FROM assetTradeOrder WHERE botArenaId='cryptosTestArena' AND traderId IN('botTest1','botTest2'); 
+UPDATE divideAndScaleMarketTrader SET startBeat=-1 WHERE botArenaId='mervalCedearsTestArena' AND traderId IN('botTest1','botTest2');
+UPDATE yahooFinanceTestMarket SET cacheBeat=-1, cachePage=0, cacheIndex=0 WHERE marketId='mervalCedearsTestArenaMarket';
+UPDATE yahooFinanceMarket SET lastBeatRead=0 WHERE marketId='mervalCedearsTestArenaMarket';
+UPDATE marketStats SET endBeat=0, synchedBeat=-1 WHERE marketId='mervalCedearsTestArenaMarket';
+UPDATE divideAndScaleMarketTrader SET phase=1,startBeat=0 WHERE botArenaId='mervalCedearsTestArena' AND traderId IN('botTest1','botTest2');
+DELETE FROM hmatrix WHERE name LIKE 'mtxMarketStatsMervalCedearsTest%';
 
  
 -- LIMPIEZA DE bots: ordenes, portofolio, comienzo de operaciones trader OJO!
