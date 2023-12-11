@@ -3,7 +3,6 @@ namespace xnan\Trurl\Horus\MarketBotRunner;
 
 chdir( __DIR__ );
 
-require("autoloader.php");
 require '../vendor/autoload.php';
 include_once("settings.php");
 

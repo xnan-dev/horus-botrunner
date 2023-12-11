@@ -3,9 +3,11 @@ namespace xnan\Trurl\Horus\MarketBotRunner;
 
 chdir( __DIR__ );
 
-require("autoloader.php");
 require '../vendor/autoload.php';
 include_once("settings.php");
+
+\Conf\Horus\Functions::Load;
+\Conf\MarketBotRunner\Functions::Load;
 
 // Uses: Nano: Shortcuts
 use xnan\Trurl\Nano;
