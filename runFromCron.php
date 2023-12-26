@@ -35,7 +35,7 @@ use xnan\Trurl\Horus\MarketPoll;
 //Uses: End
 
 if(cronEnabled() || (array_key_exists("runOnce",$_GET) && $_GET["runOnce"]=="true")) {
-	$lastRunFile="content/runFromCron.lastRun.txt";
+	$lastRunFile=sprintf("%s/content/runFromCron.lastRun.txt",\Conf\MarketBotRunner\dataRootFolder());
 
 	$lastRunTime = file_exists($lastRunFile) ? file_get_contents($lastRunFile) : 0;
 	
